@@ -1,0 +1,38 @@
+a = m2 - n2
+       b = 2 * m * n
+       c  = m2 + n2
+because,
+       a2 = m4 + n4 – 2 * m2 * n2
+       b2 = 4 * m2 * n2
+       c2 = m4 + n4 + 2* m2 * n2
+we can iterate for m and n to generate tripplet 
+
+
+import java.util.*;
+
+public class Solution {
+
+    public static long PythagoreanTriplet(long n) {
+    long result = -1;
+
+    for (long k = 2; k <= n / 3; k++) {
+        long j = ((n * n) - (2 * n * k)) / (2 * (n - k));
+        long i = n - k - j;
+
+        if (k * k + j * j == i * i) {
+            result = Math.max(result, k * j * i);
+        }
+    }
+
+    return result;
+}
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            System.out.println(PythagoreanTriplet(n));
+        }
+    }
+}
