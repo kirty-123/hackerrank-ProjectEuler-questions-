@@ -9,8 +9,6 @@ public class Solution {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        // in a constant time generate series of prime numbers  
-        // O(n) is slower then O(100000000000) = O(c)
         List<Long> primes=new ArrayList<>();
         for(long i=2;i<=1000000;i++){
             if(isPrime(i)) primes.add(i);
