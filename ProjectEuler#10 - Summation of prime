@@ -1,0 +1,38 @@
+The sum of the primes below 10 is 2+3+5+7 = 17.
+
+Find the sum of all the primes not greater than given n .
+
+
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        // in a constant time generate series of prime numbers  
+        // O(n) is slower then O(100000000000) = O(c)
+        List<Long> primes=new ArrayList<>();
+        for(long i=2;i<=1000000;i++){
+            if(isPrime(i)) primes.add(i);
+        }
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            long sum=0;
+            // sum prime number below n 
+            for(long num:primes){
+                if (num>n) break;
+                sum+=num;
+            }
+            System.out.println(sum);
+        }
+        in.close();
+    }
+    public static boolean isPrime(long number){
+         if((number!=2 && number!=3 && number!=5) && (number%2==0 || number%3==0 ||     number%5==0)) return false;
+        for (int i = 5; i <= Math.sqrt(number); i = i + 6)
+            if (number % i == 0 || number % (i + 2) == 0)
+                return false;
+        return true;
+    }
+}
