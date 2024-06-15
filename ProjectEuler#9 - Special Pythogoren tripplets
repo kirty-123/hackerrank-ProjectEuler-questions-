@@ -1,11 +1,6 @@
-a = m2 - n2
-       b = 2 * m * n
-       c  = m2 + n2
-because,
-       a2 = m4 + n4 – 2 * m2 * n2
-       b2 = 4 * m2 * n2
-       c2 = m4 + n4 + 2* m2 * n2
-we can iterate for m and n to generate tripplet 
+solve expression 
+k + j +i = n 
+k*k + j*j = i*i 
 
 
 import java.util.*;
