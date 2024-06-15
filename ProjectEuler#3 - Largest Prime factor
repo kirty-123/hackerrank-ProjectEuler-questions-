@@ -1,0 +1,50 @@
+Step 1: Start a while loop that will end whenever the number cannot be divided by two,
+Step 2: As a result, each time the loop is executed, print("2") and divide the integer by 2 are used.
+Step 3: N will then be an odd number. Start a loop now, going from i = 3 to the square root of n.
+Step 4: When i is not divisible by n, run a while loop that ends.
+Step 5: Print i while in the loop, then divide n by i, increase i by 2, and keep going.
+Step 6: If n is a prime integer and is larger than 2, the two procedures above will not result in 1 being obtained.
+Step 7: Therefore, if n is bigger than 2, print n. 
+
+
+import java.util.*;
+
+public class Solution {
+
+    public static long prime(long n ){
+            
+        // Initialize the maximum prime factor variable with the lowest one 
+        long maxPrime = -1; 
+  
+        // Print the number of 2s  that divide n 
+        while (n % 2 == 0) { 
+            maxPrime = 2; 
+  
+           n /= 2;
+        } 
+  
+        // n must be odd at this point, thus skip the even numbers and iterate only for odd integers 
+        for (int i = 3; i <= Math.sqrt(n); i += 2) { 
+            while (n % i == 0) { 
+                maxPrime = i; 
+                n = n / i; 
+            } 
+        } 
+  
+        // This condition is to handle the case when n is a prime number greater than 2 
+        if (n > 2) 
+            maxPrime = n; 
+  
+        return maxPrime;
+    }
+
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            long n = in.nextLong();
+            System.out.println(prime(n));
+        }
+    }
+}
